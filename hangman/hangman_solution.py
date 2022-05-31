@@ -45,7 +45,7 @@ class Hangman:
         # TODO 2: Print two message upon initialization:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
-        list_letters = self.list_letters
+        
         num_letters = len(list_letters)
         word_guessed = self.word_guessed
         word = self.word
