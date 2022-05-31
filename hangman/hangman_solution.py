@@ -46,7 +46,7 @@ class Hangman:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
         
-        num_letters = len(list_letters)
+        
         word_guessed = self.word_guessed
         word = self.word
         
