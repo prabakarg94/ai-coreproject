@@ -46,10 +46,7 @@ class Hangman:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
         
-        word = self.word
-        
-        print("The mystery word has", {len(word)}, "characters")
-        print(word_guessed)
+
         
         pass
 
