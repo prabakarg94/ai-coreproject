@@ -49,7 +49,7 @@ class Hangman:
         word_guessed = self.word_guessed
         word = self.word
         
-        print("The mystery word has", len(word), "characters")
+        print("The mystery word has", {len(word)}, "characters")
         print(word_guessed)
         
 
@@ -106,7 +106,7 @@ class Hangman:
 
         else:
 
-            print("{letter} was already tried")
+            print(letter,"was already tried")
 
             letter = str(input())
             
