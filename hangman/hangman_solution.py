@@ -46,13 +46,14 @@ class Hangman:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
         
-
+        word_guessed = ["_","_","_","_","_"]
+        word = random.choice(word_list)
         
-        pass
-
+        print("The mystery word has", len(word), "characters")
+        print(word_guessed)
         
 
-    def check_letter(self, letter) -> None:
+    def check_letter(self, letter,word,word_guessed) -> None:
         '''
         Checks if the letter is in the word.
         If it is, it replaces the '_' in the word_guessed list with the letter.
@@ -69,7 +70,16 @@ class Hangman:
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
-        pass
+
+        if letter.lower() in word:
+            word_guessed.replace("_",letter)
+
+        else:
+            num_lives = num_lives - 1
+
+
+
+    
 
     def ask_letter(self):
         '''
@@ -105,7 +115,7 @@ class Hangman:
 
         else:
 
-            print(letter,"was already tried")
+            print("{letter} was already tried")
 
             letter = str(input())
             
