@@ -46,10 +46,12 @@ class Hangman:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
         
-        word_guessed = ["_","_","_","_","_"]
+       
         word = random.choice(word_list)
+        word_guessed = "_" * len(word)
+        guessed = False
         
-        print("The mystery word has", len(word), "characters")
+        print("The mystery word has", {len(self.word)}, "characters")
         print(word_guessed)
         
 
@@ -73,9 +75,13 @@ class Hangman:
 
         if letter.lower() in word:
             word_guessed.replace("_",letter)
+            print("Nice",(letter)," is in the word")
+            print("_", "where word_guessed now has unveiled the ,",(letter))
 
         else:
             num_lives = num_lives - 1
+            print("Sorry, ",letter," is not in the word.")
+            print("You have ",{num_lives}," lives left.")
 
 
 
@@ -122,12 +128,16 @@ class Hangman:
 
         
         
-def play_game(word_list):
+def play_game(self,word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
+
+    print(game)
     # TODO 1: To test this task, you can call the ask_letter method
     # TODO 2: To test this task, upon initialization, two messages should be printed 
     # TODO 3: To test this task, you call the ask_letter method and check if the letter is in the word
+
+    return self.ask_letter()
     
     # TODO 4: Iteratively ask the user for a letter until the user guesses the word or runs out of lives
     # If the user guesses the word, print "Congratulations, you won!"
