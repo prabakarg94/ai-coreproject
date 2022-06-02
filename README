@@ -1,0 +1,121 @@
+In this project I created a game know as hangman. The user have to guess the word, letter by letter which the system generates and the user contains lives in which the user loses a life every time when they predict a wrong letter or character.
+
+In this i used python as the programming language and conda environment to generate the code and i used visual studio code as a editor for this
+
+I used numerous concepts in python to built this like class, methods etc..
+
+Milestone 1
+
+In milestone 1 I refered few topics to write the code and used your git template to push the code
+
+In this I coded the "ask_letter" function for taking input from the user and checking if the input is a single character or not 
+
+Milestone 2
+
+I used few control statements to filter the input and adding the input to the list, if the input passes the condition then it will call another function.
+
+snippet:
+
+-----
+    def ask_letter(self):
+        '''
+        Asks the user for a letter and checks two things:
+        1. If the letter has already been tried
+        2. If the character is a single character
+        If it passes both checks, it calls the check_letter method.
+        '''
+        # TODO 1: Ask the user for a letter iteratively until the user enters a valid letter
+        # TODO 1: Assign the letter to a variable called `letter`
+        # TODO 1: The letter has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
+        # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
+        # TODO 3: If the letter is valid, call the check_letter method
+
+        list_letters = []
+
+        letter = str(input("Enter a letter: "))
+
+        while (len(letter) != 1):
+
+            list_letters.append(letter)
+
+        if (len(letter) != 1):
+
+            print("Please, enter just one character")
+
+            letter = str(input())
+
+       
+        elif letter not in list_letters:
+
+            self.check_letter(letter)
+
+        else:
+
+            print("{letter} was already tried")
+
+            letter = str(input())
+
+        ----
+
+And I filled a method by initilizing the variables
+
+snippet:
+
+    def __init__(self, word_list, num_lives=5):
+        # TODO 2: Initialize the attributes as indicated in the docstring
+        # TODO 2: Print two message upon initialization:
+        # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
+        # 2. {word_guessed}
+        
+       
+        word = random.choice(word_list)
+        word_guessed = "_" * len(word)
+        guessed = False
+        
+        print("The mystery word has", {len(self.word)}, "characters")
+        print(word_guessed)
+
+Milestone 3
+
+In milestone 3 I started another function called "check_letter" in this letter i checked if the letter is in the word or not, if it is there i have to change a variabke called word_guessed, if the letter is not in the word then the lives has to be decreased by 1.
+
+snippet:
+
+    def check_letter(self, letter,word,word_guessed) -> None:
+        '''
+        Checks if the letter is in the word.
+        If it is, it replaces the '_' in the word_guessed list with the letter.
+        If it is not, it reduces the number of lives by 1.
+
+        Parameters:
+        ----------
+        letter: str
+            The letter to be checked
+
+        '''
+        # TODO 3: Check if the v is in the word. TIP: You can use the lower() method to convert the letter to lowercase
+        # TODO 3: If the letter is in the word, replace the '_' in the word_guessed list with the letter
+        # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
+        # TODO 3: If the letter is not in the word, reduce the number of lives by 1
+        # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
+
+        if letter.lower() in word:
+            word_guessed.replace("_",letter)
+            print("Nice",(letter)," is in the word")
+            print("_", "where word_guessed now has unveiled the ,",(letter))
+
+        else:
+            num_lives = num_lives - 1
+            print("Sorry, ",letter," is not in the word.")
+            print("You have ",{num_lives}," lives left.")
+
+
+
+After that again i complted the ask_letter function by calling the "check_letter" function if it passes
+
+
+Milestone 4 
+
+In this milestone I coded that if the user predicts all the letter correctly then a congratulations message will be printed
+
+At last i added some additional code and completed
