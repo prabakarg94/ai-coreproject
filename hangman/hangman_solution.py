@@ -1,5 +1,5 @@
 '''
-Make sure you complete all the TODOs in this file.
+make sure you complete all the TODOs in this file.
 The prints have to contain the same text as indicated, don't add any more prints,
 or you will get 0 for this assignment.
 '''
@@ -51,7 +51,7 @@ class Hangman:
         word_guessed = "_" * len(word)
         guessed = False
         
-        print("The mystery word has", {len(self.word)}, "characters")
+        print("The mystery word has", {len(word)}, "characters")
         print(word_guessed)
         
 
@@ -125,12 +125,10 @@ class Hangman:
 
             letter = str(input())
             
-
-        
         
 def play_game(self,word_list):
     # As an aid, part of the code is already provided:
-    game = Hangman(word_list, num_lives=5)
+    game = Hangman(self.word_list, num_lives=5)
 
     print(game)
     # TODO 1: To test this task, you can call the ask_letter method
