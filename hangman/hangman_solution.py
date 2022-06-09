@@ -129,7 +129,7 @@ class Hangman:
                 if letter in list_letters:
                     print("{letter} was already tried")
                 else:
-                    return self.check_letter()
+                    self.check_letter
             else:
                 print("Please, enter just one character")
                 print("Not a valid guess.")
