@@ -56,7 +56,7 @@ class Hangman:
         print(word_guessed)
         
 
-    def check_letter(self,letter,word,num_lives,list_letters):
+    def check_letter(self,letter,word,num_lives,list_letters,guessed_flag):
         print("check")
         '''
         Checks if the letter is in the word.
@@ -74,7 +74,7 @@ class Hangman:
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
-        word = "denis"
+        
         word_guessed = "_" * len(word)
         if letter not in word:
             print("check2")
@@ -101,8 +101,18 @@ class Hangman:
             for index in indices:
                 word_as_list[index] = letter
             word_guessed = "".join(word_as_list)
+            guessed_flag = False
             if "_" not in word_guessed:
                 guessed_flag = True
+                return self.dennis()
+
+    def dennis(guessed_flag,word):
+        if guessed_flag is True:
+            print("Congrats, you guessed the word! You win!")
+        else:
+            print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+
+
             
     def ask_letter(self,word_list):
         print("ask")
@@ -136,7 +146,7 @@ class Hangman:
                 if letter in list_letters:
                     print("{letter} was already tried")
                 else:
-                    self.check_letter(letter,word,num_lives,list_letters)
+                    self.check_letter(letter,word,num_lives,list_letters,guessed_flag)
             else:
                 print("Please, enter just one character")
                 print("Not a valid guess.")
@@ -150,10 +160,7 @@ def play_game(word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
 
-    # if self.guessed_flag:
-    #     print("Congratulations, you won!")
-    # else:
-    #     print("You ran out of lives. The word was {word}")
+
 
     print(game)
     # TODO 1: To test this task, you can call the ask_letter method
@@ -169,5 +176,7 @@ def play_game(word_list):
     
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon','sunildennis']
+    
+    
     play_game(word_list)
 # 
