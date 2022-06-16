@@ -9,7 +9,6 @@ class Hangman:
     '''
     A Hangman Game that asks the user for a letter and checks if it is in the word.
     It starts with a default number of lives and a random word from the word_list.
-
     
     Parameters:
     ----------
@@ -32,7 +31,6 @@ class Hangman:
         The number of lives the player has
     list_letters: list
         A list of the letters that have already been tried
-
     Methods:
     -------
     check_letter(letter)
@@ -49,11 +47,11 @@ class Hangman:
         
        
         word = random.choice(word_list)
-        word_guessed = "_" * len(word)
+        self.word_guessed = "_" * len(word)
         
         
         print("The mystery word has", {len(word)}, "characters")
-        print(word_guessed)
+        print(self.word_guessed)
         
 
     def check_letter(self,letter,word,num_lives,list_letters,guessed_flag):
@@ -62,12 +60,10 @@ class Hangman:
         Checks if the letter is in the word.
         If it is, it replaces the '_' in the word_guessed list with the letter.
         If it is not, it reduces the number of lives by 1.
-
         Parameters:
         ----------
         letter: str
             The letter to be checked
-
         '''
         # TODO 3: Check if the v is in the word. TIP: You can use the lower() method to convert the letter to lowercase
         # TODO 3: If the letter is in the word, replace the '_' in the word_guessed list with the letter
@@ -75,7 +71,7 @@ class Hangman:
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
         
-        word_guessed = "_" * len(word)
+        
         if letter not in word:
             print("check2")
             
@@ -89,20 +85,20 @@ class Hangman:
 
         else:
             print("ask2")
-            word_guessed.replace("_",letter)
+            self.word_guessed.replace("_",letter)
             print("Nice",(letter)," is in the word")
             print("_", "where word_guessed now has unveiled the ,",(letter))
             print("check4")
             list_letters.append(letter)
             print("check5")
-            word_as_list = list(word_guessed)
+            word_as_list = list(self.word_guessed)
             indices = [i for i, letterr in enumerate(word) if letterr == letter]
             print("check6")
             for index in indices:
                 word_as_list[index] = letter
-            word_guessed = "".join(word_as_list)
+            self.word_guessed = "".join(word_as_list)
             guessed_flag = False
-            if "_" not in word_guessed:
+            if "_" not in self.word_guessed:
                 guessed_flag = True
                 return self.dennis()
 
@@ -132,7 +128,7 @@ class Hangman:
         list_letters = []
 
         word = random.choice(word_list)
-        word_guessed = "_" * len(word)
+        
 
         word = random.choice(word_list)
 
@@ -151,7 +147,7 @@ class Hangman:
                 print("Please, enter just one character")
                 print("Not a valid guess.")
             
-            print(word_guessed)
+            print(self.word_guessed)
             print("\n")
 
         
@@ -179,4 +175,3 @@ if __name__ == '__main__':
     
     
     play_game(word_list)
-# 
